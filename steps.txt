@@ -1,0 +1,22 @@
+1) make api handling then listen it on a port using app.listen;
+2) we are creating .env file so that all our confidential thing should keep private in a file it could be port, password etc.
+  also we have to install package from the npm for env. + install package morgan (what morgan acutally do is it tells you what was the 
+  response from the server it was 200/ok or 304.)
+3) I saw how do we use the .env file in our server file first we define something confidential in our .env file then we use that 
+  .env file in our file as import dotenv from "dotenv", then dotenv.config()= as our env file is in root directory we don't have 
+  to define any other path if it is present in other path what we will do is dotenv.config([path:"/env"]);
+4) I saw how to use mongodb database via online. We have to create cluster with different name then we have to assign the whitelist
+   ip adress and then create new database connect the online database to compass to offline and copy the url there in password write 
+   password and user name net/{nameof database}
+5)In env file make a variable as MONGO_URL where you will initiate the file url which you copied from the online mongodb and write 
+  password and userName here;
+6) make a file named as db.js in new config directory where we will be importing the mongoose here: import mongoose, connectDb=try,catch
+   for try mongoose.connect(process.env.MONGO_URL);
+7) Now in server.js import morgan and use middlewares as app.use(express.json()) and app.use(morgan('dev'))
+   and connect mongoDb with the name you initiated in db.js
+8) Create few folder named as controllers,helpers,middlewares,models,routes: 
+      a) models: in this dir create mongoose schema files;
+      b) controllers: in this dir create 
+      c) helpers: in this dir create utility files such as password hashing file, here we are using the bcrypt encryption package to 
+         encrypt the password;
+      d) 
