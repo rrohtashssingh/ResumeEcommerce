@@ -1,8 +1,8 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import React from 'react';
+import Header from './Header';
+import Footer from "./Footer";
 import { Helmet } from "react-helmet";
-import { ToastContainer } from 'react-toastify';
+import { Toaster } from 'react-hot-toast';
 
 const Layout = ({ children, author, description, keywords, title }) => {
     return (
@@ -14,7 +14,7 @@ const Layout = ({ children, author, description, keywords, title }) => {
                 <meta name="author" content={author} />
             </Helmet>
             <Header />
-            <main style={{ marginBottom: '20px' }}><ToastContainer />{children}</main>
+            <main style={{ height: '75vh' }}><Toaster />{children}</main>
             <Footer />
         </div>
     )
